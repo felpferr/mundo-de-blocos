@@ -19,19 +19,16 @@ int Move(lista vlb, tokens t,int numeroBlocos){
         for(i=0; i<numeroBlocos; i++){
             p = vlb[i].inicio;
 
-            while(p){///Loop para buscar no vetor a referencia do elemento a ser movido.
-                if(p->id == a)
+            while(p){
+                if(p->id == a)///busca no vetor a referencia do elemento a ser movido.
                     aux1 = p;
-                else
-                    p = p->next;
+
+                if(p->id == b)///busca no vetor a referencia do elemento para onde o elemento será movido.
+                    aux2 = p;
+
+                p = p->next;
             }
 
-            while(p){///Loop para buscar no vetor a referencia do elemento para onde será movido.
-                if(p->id == b)
-                    aux2 = p;
-                else
-                    p = p->next;
-            }
         }
 
         p = aux2->next;
@@ -47,7 +44,7 @@ int Move(lista vlb, tokens t,int numeroBlocos){
             p = p->next;
         }
 
-        vlb[aux1->id].fim = NULL;
+        aux1->next = NULL;
 
         return 1;
 
@@ -57,35 +54,23 @@ int Move(lista vlb, tokens t,int numeroBlocos){
             for(i=0; i<numeroBlocos; i++){
                 p = vlb[i].inicio;
 
-                while(p){///Loop para buscar no vetor a referencia do elemento a ser movido.
-                    if(p->id == a){
+                while(p){
+                    if(p->id == a)///busca no vetor a referencia do elemento a ser movido.
                         aux1 = p;
-                        break;
-                    }
-                    else
-                        p = p->next;
-                }
 
-                while(p){///Loop para buscar no vetor a referencia do elemento para onde será movido.
-                    if(p->id == b){
+                    if(p->id == b)///busca no vetor a referencia do elemento para onde o elemento será movido.
                         aux2 = p;
-                        break;
-                    }
-                    else
-                        p = p->next;
-                }
-            }
-            printf("%d",aux2->id);
-            p = aux2->next;
 
-            while(p){
-                vlb[p->id].inicio = p;
-                p = p->next;
+                    p = p->next;
+                }
+
             }
-            printf("aqui");
-            while(p){
+
+            p = aux1;
+            while(p->next){
                 p = aux1->next;
             }
+
             p->next = aux2;
             aux2->next = NULL;
 

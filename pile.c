@@ -19,18 +19,14 @@ int Pile(lista vlb,tokens t, int numeroBlocos){
         for(i=0; i<=numeroBlocos; i++){
             p = vlb[i].inicio;
 
-            while(p){///Loop para buscar no vetor a referencia do elemento a ser movido.
-                if(p->id == a)
+            while(p){
+                if(p->id == a)///busca no vetor a referencia do elemento a ser movido.
                     aux1 = p;
-                else
-                    p = p->next;
-            }
 
-            while(p){///Loop para buscar no vetor a referencia do elemento para onde será movido.
-                if(p->id == b)
+                if(p->id == b)///busca no vetor a referencia do elemento para onde o elemento será movido.
                     aux2 = p;
-                else
-                    p = p->next;
+
+                p = p->next;
             }
         }
 
@@ -49,22 +45,23 @@ int Pile(lista vlb,tokens t, int numeroBlocos){
             for(i=0; i<=numeroBlocos; i++){
                 p = vlb[i].inicio;
 
-                while(p){///Loop para buscar no vetor a referencia do elemento a ser movido.
-                    if(p->id == a)
+                while(p){
+                    if(p->id == a)///busca no vetor a referencia do elemento a ser movido.
                         aux1 = p;
-                    else
-                        p = p->next;
-                }
 
-                while(p){///Loop para buscar no vetor a referencia do elemento para onde será movido.
-                    if(p->id == b)
+                    if(p->id == b)///busca no vetor a referencia do elemento para onde o elemento será movido.
                         aux2 = p;
-                    else
-                        p = p->next;
+
+                    p = p->next;
                 }
             }
+            printf("aqui");
+            p = aux1;
 
-            aux1->next = aux2;
+            while(p->next)
+                p = p->next;
+
+            p->next = aux2;
             return 1;
         }
     }

@@ -33,6 +33,8 @@ int getComando(FILE *fc, char *comando){
 
     fgets(comando,14,fc);
 
+    removeBarraN(comando);
+
     return 1;
 }
 
@@ -48,6 +50,8 @@ int interpretaComando(lista vlb,char *comando,int numeroBlocos){
         return 0;
 
     getToken(comando,&t);
+
+    ///printf("\nComando interpretado: %s",comando);
 
     if(strcmp(t.c1,"move") == 0){
         Move(vlb,t,numeroBlocos);

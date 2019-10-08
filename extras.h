@@ -2,6 +2,7 @@
 #define EXTRAS_H_INCLUDED
 
 #include "extras.h"
+#include <stdio.h>
 
 typedef struct{
     char c1[5],c2[5],a[5],b[5];

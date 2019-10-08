@@ -14,16 +14,22 @@ void limpaTela(){
 }
 
 int inicio(){
-    char comando[14];
-    FILE *fc;
-    int numeroBlocos;
+    char comando[14], config[256], its[5];
+    FILE *fc,*fs;
+    int numeroBlocos, i;
     lista vlb;
+    TBlocos *p;
 
     fc = fopen("entrada.txt","r");
 
-    if(fc == NULL){
-        return 0;
-    }
+    if(fc == NULL)
+        fc = fopen("entrada.txt","w");
+
+
+    fs = fopen("saida.txt","r");
+
+    if(fs == NULL)
+        fs = fopen("saida.txt","w");
 
     fseek(fc,0,SEEK_SET);
 
@@ -39,8 +45,22 @@ int inicio(){
         getComando(fc,comando);
 
         removeBarraN(comando);
+        ///printf("\nComando: %s\n",comando);
 
     }while(interpretaComando(vlb,comando,numeroBlocos) != 0);
+
+    /*p = vlb[0].inicio;
+    for(i=0; i<numeroBlocos; i++){
+        itoa(p->id,its,10);
+        removeBarraN(its);
+        strcat(config,its);
+        removeBarraN(config);
+        strcat(config,":");
+
+        while(p){
+
+        }
+    }*/
 
     return 1;
 }
