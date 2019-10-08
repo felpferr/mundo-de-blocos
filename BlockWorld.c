@@ -25,7 +25,6 @@ lista inicializaMundo(const int ntb){
     }
 }
 
-///TESTAR ESSA FUNÇÃO DEPOIS!!!
 ///O(n);
 int getComando(FILE *fc, char *comando){
 
@@ -40,7 +39,9 @@ int getComando(FILE *fc, char *comando){
 
 ///O(2n);
 int interpretaComando(lista vlb,char *comando,int numeroBlocos){
-     tokens t;
+    tokens t;
+    int i;
+    TBlocos *p;
 
     removeBarraN(t.c1);
     removeBarraN(t.a);
@@ -55,6 +56,7 @@ int interpretaComando(lista vlb,char *comando,int numeroBlocos){
 
     if(strcmp(t.c1,"move") == 0){
         Move(vlb,t,numeroBlocos);
+
         return 1;
     }
     else{

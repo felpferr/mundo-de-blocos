@@ -16,7 +16,7 @@ int Pile(lista vlb,tokens t, int numeroBlocos){
     b = atoi(t.b);
 
     if(strcmp(t.c2,"onto") == 0){
-        for(i=0; i<=numeroBlocos; i++){
+        for(i=0; i<numeroBlocos; i++){
             p = vlb[i].inicio;
 
             while(p){
@@ -42,7 +42,7 @@ int Pile(lista vlb,tokens t, int numeroBlocos){
     }
     else{
         if(strcmp(t.c2,"over") == 0){
-            for(i=0; i<=numeroBlocos; i++){
+            for(i=0; i<numeroBlocos; i++){
                 p = vlb[i].inicio;
 
                 while(p){
@@ -55,7 +55,6 @@ int Pile(lista vlb,tokens t, int numeroBlocos){
                     p = p->next;
                 }
             }
-            printf("aqui");
             p = aux1;
 
             while(p->next)

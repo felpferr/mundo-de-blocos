@@ -45,28 +45,55 @@ int inicio(){
         getComando(fc,comando);
 
         removeBarraN(comando);
-        ///printf("\nComando: %s\n",comando);
 
     }while(interpretaComando(vlb,comando,numeroBlocos) != 0);
 
-    /*p = vlb[0].inicio;
-    for(i=0; i<numeroBlocos; i++){
+    p = vlb[0].inicio;
+    /*for(i=0; i<numeroBlocos; i++){
         itoa(p->id,its,10);
         removeBarraN(its);
+
+        printf("Numero %s\n",its);
+
         strcat(config,its);
         removeBarraN(config);
+
+        printf("Comando %s\n",config);
+
         strcat(config,":");
 
-        while(p){
+        printf("%s",config);
 
+        while(p){
+            itoa(p->id,its,10);
+            removeBarraN(its);
+            strcat(config," ");
+            strcat(config,its);
+            p = p->next;
         }
+
+        fseek(fs,0,SEEK_END);
+        fwrite(config,14,0,fs);
+
+        p = vlb[++i].inicio;
     }*/
+
+    for(i=0; i<numeroBlocos;i++){
+        printf("%d:",i);
+        while(p){
+            printf(" %d",p->id);
+            p = p->next;
+        }
+        p = vlb[i].inicio;
+        printf("\n");
+    }
 
     return 1;
 }
 
 int getToken(char *palavra,tokens *t){
 
+    setbuf(stdin,NULL);
     sscanf(palavra,"%s %s %s %s",t->c1,t->a,t->c2,t->b);
 
     return 1;
