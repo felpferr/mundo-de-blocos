@@ -31,9 +31,7 @@ int getComando(FILE *fc, char *comando){
 
     fseek(fc,0,SEEK_CUR);
 
-    while(fread(comando,14,1,fc) == 1){
-        return 1;
-    }
+    fgets(comando,14,fc);
 
     return 1;
 }
@@ -42,16 +40,20 @@ int getComando(FILE *fc, char *comando){
 int interpretaComando(lista vlb,char *comando,int numeroBlocos){
      tokens t;
 
+    removeBarraN(t.c1);
+    removeBarraN(t.a);
+    removeBarraN(t.c2);
+    removeBarraN(t.b);
     if(strcmp(comando,"quit") == 0)
         return 0;
 
-    if(strcmp(comando,"move") == 0){
-        getToken(comando,t);
+    getToken(comando,&t);
+
+    if(strcmp(t.c1,"move") == 0){
         Move(vlb,t,numeroBlocos);
         return 1;
     }
     else{
-        getToken(comando,t);
         Pile(vlb,t,numeroBlocos);
         return 1;
     }

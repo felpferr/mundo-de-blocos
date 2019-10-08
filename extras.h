@@ -4,12 +4,12 @@
 #include "extras.h"
 
 typedef struct{
-    char *c1,*c2,*a,*b;
+    char c1[5],c2[5],a[5],b[5];
 }tokens;
 
 void removeBarraN(char*);
 void limpaTela();
 int inicio();
-int getToken(char *, tokens);
+int getToken(char *, tokens *);
 
 #endif // EXTRAS_H_INCLUDED

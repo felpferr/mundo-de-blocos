@@ -15,6 +15,7 @@ int Move(lista vlb, tokens t,int numeroBlocos){
     b = atoi(t.b);
 
     if(strcmp(t.c2,"onto") == 0){
+
         for(i=0; i<numeroBlocos; i++){
             p = vlb[i].inicio;
 
@@ -57,26 +58,31 @@ int Move(lista vlb, tokens t,int numeroBlocos){
                 p = vlb[i].inicio;
 
                 while(p){///Loop para buscar no vetor a referencia do elemento a ser movido.
-                    if(p->id == a)
+                    if(p->id == a){
                         aux1 = p;
+                        break;
+                    }
                     else
                         p = p->next;
                 }
 
                 while(p){///Loop para buscar no vetor a referencia do elemento para onde será movido.
-                    if(p->id == b)
+                    if(p->id == b){
                         aux2 = p;
+                        break;
+                    }
                     else
                         p = p->next;
                 }
             }
-
+            printf("%d",aux2->id);
             p = aux2->next;
+
             while(p){
                 vlb[p->id].inicio = p;
                 p = p->next;
             }
-
+            printf("aqui");
             while(p){
                 p = aux1->next;
             }

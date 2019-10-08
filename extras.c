@@ -45,15 +45,9 @@ int inicio(){
     return 1;
 }
 
-int getToken(char *palavra,tokens t){
+int getToken(char *palavra,tokens *t){
 
-    strcpy(t.c1, strtok(palavra," "));
-
-    strcpy(t.a, strtok(NULL," "));
-
-    strcpy(t.c2, strtok(NULL," "));
-
-    strcpy(t.b, strtok(NULL," "));
+    sscanf(palavra,"%s %s %s %s",t->c1,t->a,t->c2,t->b);
 
     return 1;
 }
