@@ -18,7 +18,7 @@ typedef tipo_lista *lista;
 
 /*a funçao getComando lê cada comando escrito no arquivo, linha por linha e altera
   uma string passada por referencia escrevendo nela o comando lido.*/
-int getComando(FILE*, char*);///Retorna 1 enquanto não chegar no final do arquivo.
+int getComando(FILE*, char*, int);///Retorna 1 enquanto não chegar no final do arquivo.
 
 int interpretaComando(lista, char*, int);
 

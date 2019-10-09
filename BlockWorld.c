@@ -26,11 +26,9 @@ lista inicializaMundo(const int ntb){
 }
 
 ///O(n);
-int getComando(FILE *fc, char *comando){
+int getComando(FILE *fc, char *comando,int indice){
 
-    fseek(fc,0,SEEK_CUR);
-
-    fgets(comando,14,fc);
+    fgets(comando,indice,fc);
 
     removeBarraN(comando);
 

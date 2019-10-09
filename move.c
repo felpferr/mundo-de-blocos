@@ -20,12 +20,16 @@ int Move(lista vlb, tokens t,int numeroBlocos){
             p = vlb[i].inicio;
 
             while(p){
-                if(p->id == a)///busca no vetor a referencia do elemento a ser movido.
+                if(p->id == a){///busca no vetor a referencia do elemento a ser movido.
                     aux1 = p;
-
-                if(p->id == b)///busca no vetor a referencia do elemento para onde o elemento será movido.
+                    printf("\n\nA: %d",a);
+                    printf("\n\np-> %d\n\n",p->id);
+                }
+                if(p->id == b){///busca no vetor a referencia do elemento para onde o elemento será movido.
                     aux2 = p;
-
+                    printf("\n\nB: %d",b);
+                    printf("\n\np-> %d\n\n",p->id);
+                }
                 p = p->next;
             }
 

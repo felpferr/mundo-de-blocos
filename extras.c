@@ -17,6 +17,7 @@ int inicio(){
     char comando[14], config[256], its[5];
     FILE *fc,*fs;
     int numeroBlocos, i;
+    static int indice = 0;
     lista vlb;
     TBlocos *p;
 
@@ -33,7 +34,7 @@ int inicio(){
 
     fseek(fc,0,SEEK_SET);
 
-    getComando(fc,comando);
+    getComando(fc,comando,indice);
 
     removeBarraN(comando);
 
@@ -42,9 +43,8 @@ int inicio(){
     vlb = inicializaMundo(numeroBlocos);
 
     do{
-        getComando(fc,comando);
-
-        removeBarraN(comando);
+        indice += 15;
+        getComando(fc,comando,indice);
 
     }while(interpretaComando(vlb,comando,numeroBlocos) != 0);
 
@@ -92,9 +92,19 @@ int inicio(){
 }
 
 int getToken(char *palavra,tokens *t){
+    printf("palavra: %s",palavra);
 
-    setbuf(stdin,NULL);
-    sscanf(palavra,"%s %s %s %s",t->c1,t->a,t->c2,t->b);
+    strcpy(t->c1,strtok(palavra," "));
+    printf("\nc1: %s",t->c1);
+
+    strcpy(t->a,strtok(NULL," "));
+    printf("\nA: %s",t->a);
+
+    strcpy(t->c2,strtok(NULL," "));
+    printf("\nc2: %s",t->c2);
+
+    strcpy(t->b,strtok(NULL," "));
+    printf("\nB: %s",t->b);
 
     return 1;
 }

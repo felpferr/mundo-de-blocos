@@ -1,5 +1,5 @@
 12
 move 1 over 2
-move 3 over 1
-pile 5 over 2
+move 3 onto 1
+pile 5 onto 1
 quit
